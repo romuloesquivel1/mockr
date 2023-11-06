@@ -1,25 +1,18 @@
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+common: &common
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
-production: &production
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
-
-staging:
-  <<: *production
-
 development:
-  <<: *default
-  database: mockr_development
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  <<: *common
+  adapter: sqlite3
+  database: db/development.sqlite3
 
 test:
-  <<: *default
-  database: mockr_test
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  <<: *common
+  adapter: sqlite3
+  database: db/test.sqlite3
+
+production:
+  <<: *common
+  adapter: sqlite3
+  database: db/production.sqlite3

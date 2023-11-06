@@ -33,8 +33,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
     t.string "path", null: false
     t.integer "status", default: 200, null: false
     t.integer "throttle", default: 0
-    t.jsonb "headers", default: {}, null: false
-    t.jsonb "properties", default: {}, null: false
+    t.json "headers", default: {}, null: false
+    t.json "properties", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
 
   create_table "logs", force: :cascade do |t|
     t.bigint "request_id", null: false
-    t.jsonb "data", default: {}, null: false
+    t.json "data", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["request_id"], name: "index_logs_on_request_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.boolean "listing", default: false, null: false
-    t.jsonb "listing_attributes", default: {}, null: false
+    t.json "listing_attributes", default: {}, null: false
     t.index ["client_id", "method", "path"], name: "index_requests_on_client_id_and_method_and_path", unique: true
     t.index ["client_id"], name: "index_requests_on_client_id"
     t.index ["deleted_at"], name: "index_requests_on_deleted_at"
@@ -73,9 +73,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
     t.bigint "request_id", null: false
     t.string "name", null: false
     t.text "description"
-    t.jsonb "conditions", default: {}, null: false
+    t.json "conditions", default: {}, null: false
     t.integer "status", default: 200, null: false
-    t.jsonb "headers", default: {}, null: false
+    t.json "headers", default: {}, null: false
     t.string "format", default: "json", null: false
     t.string "path", null: false
     t.datetime "created_at", null: false

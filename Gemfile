@@ -13,8 +13,10 @@ gem "dry-struct", "~> 1.6"
 gem "jsonpath"
 gem "octokit"
 gem "panko_serializer"
-gem "pg"
+gem "sqlite3"
 gem "puma"
+# Use SCSS for stylesheets
+gem 'sassc-rails'
 gem "rails", "~> 7.0"
 gem "sprockets-rails", require: "sprockets/railtie"
 
