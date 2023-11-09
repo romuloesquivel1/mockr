@@ -270,7 +270,6 @@ GEM
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
-    pg (1.5.4)
     prosopite (1.4.1)
     psych (5.1.1.1)
       stringio
@@ -392,6 +391,9 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.8-aarch64-linux)
+    sqlite3 (1.6.8-arm64-darwin)
+    sqlite3 (1.6.8-x86_64-linux)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.8)
@@ -445,7 +447,6 @@ DEPENDENCIES
   omniauth-okta
   omniauth-rails_csrf_protection
   panko_serializer
-  pg
   prosopite
   puma
   rails (~> 7.0)
@@ -458,12 +459,10 @@ DEPENDENCIES
   simplecov
   simplecov-cobertura
   sprockets-rails
+  sqlite3
   stimulus-rails (~> 1.1)
   turbo-rails (~> 1.1)
   vcr
-
-RUBY VERSION
-   ruby 3.2.2p53
 
 BUNDLED WITH
    2.3.26

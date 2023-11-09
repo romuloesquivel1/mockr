@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-ruby "3.2.2"
+# ruby "3.2.2"
 
 gem "acts_as_paranoid"
 gem "avo"
@@ -13,7 +13,7 @@ gem "dry-struct", "~> 1.6"
 gem "jsonpath"
 gem "octokit"
 gem "panko_serializer"
-gem "pg"
+gem "sqlite3"
 gem "puma"
 gem "rails", "~> 7.0"
 gem "sprockets-rails", require: "sprockets/railtie"
