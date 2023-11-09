@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[7.1].define(version: 2023_10_08_130433) do
   create_table "clients", force: :cascade do |t|
     t.string "name", null: false
     t.string "slug", null: false
@@ -26,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
   end
 
   create_table "indices", force: :cascade do |t|
-    t.bigint "request_id", null: false
+    t.integer "request_id", null: false
     t.string "name", null: false
     t.text "description"
     t.string "method", null: false
@@ -38,7 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.text "generator"
     t.text "template"
     t.index ["deleted_at"], name: "index_indices_on_deleted_at"
     t.index ["request_id", "method", "path"], name: "index_indices_on_request_id_and_method_and_path", unique: true
@@ -46,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
   end
 
   create_table "logs", force: :cascade do |t|
-    t.bigint "request_id", null: false
+    t.integer "request_id", null: false
     t.json "data", default: {}, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.bigint "client_id", null: false
+    t.integer "client_id", null: false
     t.string "name", null: false
     t.text "description"
     t.string "method", null: false
@@ -62,15 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_08_130433) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.boolean "listing", default: false, null: false
-    t.json "listing_attributes", default: {}, null: false
     t.index ["client_id", "method", "path"], name: "index_requests_on_client_id_and_method_and_path", unique: true
     t.index ["client_id"], name: "index_requests_on_client_id"
     t.index ["deleted_at"], name: "index_requests_on_deleted_at"
   end
 
   create_table "responses", force: :cascade do |t|
-    t.bigint "request_id", null: false
+    t.integer "request_id", null: false
     t.string "name", null: false
     t.text "description"
     t.json "conditions", default: {}, null: false

@@ -6,9 +6,9 @@ class CreateResponses < ActiveRecord::Migration[7.0]
       t.belongs_to :request, null: false, foreign_key: true, index: true
       t.string :name, null: false
       t.text :description
-      t.jsonb :conditions, default: {}, null: false
+      t.json :conditions, default: {}, null: false
       t.integer :status, null: false, default: 200
-      t.jsonb :headers, default: {}, null: false
+      t.json :headers, default: {}, null: false
       t.string :format, null: false, default: "json"
       t.string :path, null: false
       t.timestamps

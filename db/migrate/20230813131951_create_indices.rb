@@ -10,8 +10,8 @@ class CreateIndices < ActiveRecord::Migration[7.0]
       t.string :path, null: false
       t.integer :status, null: false, default: 200
       t.integer :throttle, default: 0
-      t.jsonb :headers, default: {}, null: false
-      t.jsonb :properties, default: {}, null: false
+      t.json :headers, default: {}, null: false
+      t.json :properties, default: {}, null: false
       t.timestamps
       t.datetime :deleted_at, index: true
     end
